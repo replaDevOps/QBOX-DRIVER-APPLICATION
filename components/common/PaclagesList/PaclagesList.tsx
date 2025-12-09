@@ -3,10 +3,10 @@ import { Card, Chip, Text } from "@/components/ui";
 import { BorderRadius, Colors, PACKAGE_TYPE, Spacing } from "@/constants";
 import { mvs } from "@/utils/metrices";
 import { format } from "date-fns";
-import { Image } from "expo-image";
 import { router } from "expo-router";
 import React from "react";
 import { FlatList, StyleSheet, View } from "react-native";
+import { EmptyList } from "../EmptyList";
 import { PaclagesListProps } from "./props";
 
 const PaclagesList = ({ title, data }: PaclagesListProps) => {
@@ -31,17 +31,7 @@ const PaclagesList = ({ title, data }: PaclagesListProps) => {
         contentContainerStyle={{
           paddingBottom: mvs(20),
         }}
-        ListEmptyComponent={
-          <View style={{ alignItems: "center", marginTop: 40 }}>
-            <Image
-              source={require("@/assets/images/empty.png")}
-              style={{ width: 150, height: 150 }}
-            />
-            <Text size="sm" variant="secondary">
-              No {title} Yet
-            </Text>
-          </View>
-        }
+        ListEmptyComponent={<EmptyList title={title} />}
         renderItem={({ item }) => (
           <Card
             variant="filled"

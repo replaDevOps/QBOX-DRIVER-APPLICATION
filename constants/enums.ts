@@ -7,3 +7,8 @@ export enum PACKAGE_TYPE {
   PENDING = "pending",
   UPCOMING = "upcoming",
 }
+export enum QR_VALIDITY_DURATION_TYPE {
+  MIN = "min",
+  HOUR = "hour",
+  DAY = "day",
+}

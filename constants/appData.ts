@@ -6,7 +6,7 @@ import {
   PackageWeightIcon,
 } from "@/assets/icons";
 import { PackageDetailsType } from "@/types";
-import { PACKAGE_TYPE } from "./enums";
+import { PACKAGE_TYPE, QR_VALIDITY_DURATION_TYPE } from "./enums";
 
 export interface StatusCardItem {
   id: string;
@@ -155,5 +155,88 @@ export const PACKAGE_DETAILS: PackageDetailsType[] = [
     location: "Shipment booked, not yet picked",
     packageDeilveryTutorial:
       "Your package is being prepared. Delivery will start soon.",
+  },
+];
+
+export const QR_CODE_HISTORY = [
+  {
+    id: 1,
+    title: "Entrance Gate QR",
+    isActive: true,
+    createdAt: new Date("2025-01-10T10:15:00Z").toISOString(),
+    validityDuration: 15,
+    validityDurationType: QR_VALIDITY_DURATION_TYPE.MIN,
+    maxUsers: 20,
+    usersLeft: 10,
+  },
+  {
+    id: 2,
+    title: "Cafeteria Access",
+    isActive: false,
+    createdAt: new Date("2025-01-02T09:00:00Z").toISOString(),
+    validityDuration: 2,
+    validityDurationType: QR_VALIDITY_DURATION_TYPE.HOUR,
+    maxUsers: 50,
+    usersLeft: 20,
+  },
+  {
+    id: 3,
+    title: "Conference Room QR",
+    isActive: true,
+    createdAt: new Date("2025-01-11T14:45:00Z").toISOString(),
+    validityDuration: 1,
+    validityDurationType: QR_VALIDITY_DURATION_TYPE.DAY,
+    maxUsers: 5,
+    usersLeft: 2,
+  },
+  {
+    id: 4,
+    title: "Event Guest Entry",
+    isActive: true,
+    createdAt: new Date("2025-01-12T18:30:00Z").toISOString(),
+    validityDuration: 30,
+    validityDurationType: QR_VALIDITY_DURATION_TYPE.MIN,
+    maxUsers: 200,
+    usersLeft: 90,
+  },
+  {
+    id: 5,
+    title: "VIP Lounge Access",
+    isActive: false,
+    createdAt: new Date("2025-01-05T11:20:00Z").toISOString(),
+    validityDuration: 12,
+    validityDurationType: QR_VALIDITY_DURATION_TYPE.HOUR,
+    maxUsers: 10,
+    usersLeft: 0,
+  },
+  {
+    id: 6,
+    title: "Parking Zone QR",
+    isActive: true,
+    createdAt: new Date("2025-01-09T07:10:00Z").toISOString(),
+    validityDuration: 2,
+    validityDurationType: QR_VALIDITY_DURATION_TYPE.DAY,
+    maxUsers: 300,
+    usersLeft: 100,
+  },
+  {
+    id: 7,
+    title: "Temporary Office QR",
+    isActive: true,
+    createdAt: new Date("2025-01-12T09:40:00Z").toISOString(),
+    validityDuration: 45,
+    validityDurationType: QR_VALIDITY_DURATION_TYPE.MIN,
+    maxUsers: 3,
+    usersLeft: 2,
+  },
+  {
+    id: 8,
+    title: "Employee Training Session",
+    isActive: false,
+    createdAt: new Date("2025-01-01T13:00:00Z").toISOString(),
+    validityDuration: 24,
+    validityDurationType: QR_VALIDITY_DURATION_TYPE.HOUR,
+    maxUsers: 50,
+    usersLeft: 10,
   },
 ];

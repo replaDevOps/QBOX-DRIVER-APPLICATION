@@ -13,7 +13,7 @@ export const AppTabLayout = () => {
   console.log("pathname", pathname);
 
   const handleQRPress = () => {
-    router.navigate("/");
+    router.navigate("/qrCodeHistory");
     console.log("QR pressed");
   };
 
