@@ -1,0 +1,116 @@
+import { PackageItemIcon } from "@/assets/icons";
+import { Card, Chip, Text } from "@/components/ui";
+import { BorderRadius, Colors, PACKAGE_TYPE, Spacing } from "@/constants";
+import { mvs } from "@/utils/metrices";
+import { format } from "date-fns";
+import { Image } from "expo-image";
+import React from "react";
+import { FlatList, StyleSheet, View } from "react-native";
+import { PaclagesListProps } from "./props";
+
+const PaclagesList = ({ title, data }: PaclagesListProps) => {
+  return (
+    <View
+      style={{
+        width: "90%",
+        marginTop: mvs(Spacing.lg),
+      }}
+    >
+      <Text bold color={Colors.dark} style={{ marginBottom: mvs(Spacing.sm) }}>
+        {title}
+      </Text>
+      <FlatList
+        data={data}
+        keyExtractor={(item) => item.id.toString()}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{
+          paddingBottom: mvs(20),
+        }}
+        ListEmptyComponent={
+          <View style={{ alignItems: "center", marginTop: 40 }}>
+            <Image
+              source={require("@/assets/images/empty.png")}
+              style={{ width: 150, height: 150 }}
+            />
+            <Text size="sm" variant="secondary">
+              No {title} Yet
+            </Text>
+          </View>
+        }
+        renderItem={({ item }) => (
+          <Card
+            variant="filled"
+            style={{
+              marginBottom: mvs(Spacing.sm),
+              width: "100%",
+            }}
+          >
+            <View style={{ flexDirection: "row", gap: mvs(12) }}>
+              <View
+                style={{
+                  width: mvs(40),
+                  height: mvs(40),
+                  borderRadius: BorderRadius.full,
+                  justifyContent: "center",
+                  alignItems: "center",
+                  backgroundColor: Colors.primary,
+                }}
+              >
+                <PackageItemIcon />
+              </View>
+
+              <View style={{ flex: 1 }}>
+                <Text size="xs" variant="secondary">
+                  QBox ID : {item.qBoxId}
+                </Text>
+                <View
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <Text bold style={{ width: "40%" }} numberOfLines={1}>
+                    {item.title}
+                  </Text>
+                </View>
+                <View style={{ position: "absolute", right: 0, top: 0 }}>
+                  {item.type === PACKAGE_TYPE.PENDING && item.status && (
+                    <Chip
+                      label={item.status}
+                      size="medium"
+                      variant={
+                        item.status === "Out for Delivery"
+                          ? "warning"
+                          : item.status === "Shipment Created"
+                          ? "info"
+                          : "default"
+                      }
+                    />
+                  )}
+                </View>
+
+                <Text size="sm">{item.shortAddress}</Text>
+
+                <Text
+                  variant="secondary"
+                  size="sm"
+                  style={{ marginTop: mvs(Spacing.sm) }}
+                >
+                  Tracking ID : {item.trackingId}
+                </Text>
+
+                <Text variant="secondary" size="sm">
+                  {format(new Date(item.createdAt), "Pp")}
+                </Text>
+              </View>
+            </View>
+          </Card>
+        )}
+      />
+    </View>
+  );
+};
+
+export default PaclagesList;
+
+const styles = StyleSheet.create({});

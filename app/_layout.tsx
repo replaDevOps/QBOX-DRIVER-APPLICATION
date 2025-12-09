@@ -1,24 +1,40 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
+import { Colors, CustomNavigationTheme } from "@/constants";
+import { AuthProvider } from "@/context/AuthContext";
+import { AppNavigation } from "@/navigation";
+import { ThemeProvider } from "@react-navigation/native";
+import * as NavigationBar from "expo-navigation-bar";
+import { StatusBar } from "expo-status-bar";
+import React, { useEffect } from "react";
+import { Platform, StyleSheet } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import ToastManager from "toastify-react-native";
 
-import { useColorScheme } from '@/hooks/use-color-scheme';
-
-export const unstable_settings = {
-  anchor: '(tabs)',
-};
-
-export default function RootLayout() {
-  const colorScheme = useColorScheme();
+export const RootLayout = () => {
+  useEffect(() => {
+    if (Platform.OS === "android") {
+      NavigationBar.setBackgroundColorAsync(Colors.white);
+      NavigationBar.setButtonStyleAsync("dark");
+    }
+  }, []);
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    <SafeAreaView edges={["bottom"]} style={styles.container}>
+      <ThemeProvider value={CustomNavigationTheme}>
+        <AuthProvider>
+          <AppNavigation />
+        </AuthProvider>
+        <StatusBar style="dark" />
+      </ThemeProvider>
+
+      <ToastManager />
+    </SafeAreaView>
   );
-}
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
+
+export default RootLayout;

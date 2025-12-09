@@ -1,0 +1,14 @@
+export { default as CameraIcon } from "./camera.svg";
+export { default as HistoryIconOutline } from "./history-icon-outline.svg";
+export { default as HistoryIcon } from "./history-icon.svg";
+export { default as HomeIconOutline } from "./home-icon-outline.svg";
+export { default as HomeIcon } from "./home-icon.svg";
+export { default as LED_IndicatorIcon } from "./led-indicator.svg";
+export { default as NotificationBellIcon } from "./notification-bell.svg";
+export { default as OnlineStatusIcon } from "./onlineStatus.svg";
+export { default as DeliveryIconOutline } from "./package-icon-outline.svg";
+export { default as DeliveryIcon } from "./package-icon.svg";
+export { default as PackageItemIcon } from "./package_1.svg";
+export { default as ProfileIconOutline } from "./profile-icon-outline.svg";
+export { default as ProfileIcon } from "./profile-icon.svg";
+export { default as QRHistoryIcon } from "./qr-history.svg";
