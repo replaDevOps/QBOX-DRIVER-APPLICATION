@@ -22,8 +22,10 @@ export default function HomeStack() {
         options={{ title: "QR Code History" }}
       />
       <Stack.Screen
-        name="qrCodeDetails/[id]"
-        options={{ title: "QR Code Details" }}
+        name="packageDetails/[id]"
+        options={{
+          title: "",
+        }}
       />
     </Stack>
   );

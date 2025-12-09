@@ -5,4 +5,5 @@ export enum AUTH_PROVIDERS {
 export enum PACKAGE_TYPE {
   COMPLETE = "complete",
   PENDING = "pending",
+  UPCOMING = "upcoming",
 }

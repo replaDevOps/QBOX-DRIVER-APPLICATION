@@ -4,11 +4,16 @@ import { BorderRadius, Colors, PACKAGE_TYPE, Spacing } from "@/constants";
 import { mvs } from "@/utils/metrices";
 import { format } from "date-fns";
 import { Image } from "expo-image";
+import { router } from "expo-router";
 import React from "react";
 import { FlatList, StyleSheet, View } from "react-native";
 import { PaclagesListProps } from "./props";
 
 const PaclagesList = ({ title, data }: PaclagesListProps) => {
+  const handleCardPress = (id: number) => {
+    router.navigate(`/packageDetails/${id}`);
+  };
+
   return (
     <View
       style={{
@@ -43,6 +48,10 @@ const PaclagesList = ({ title, data }: PaclagesListProps) => {
             style={{
               marginBottom: mvs(Spacing.sm),
               width: "100%",
+            }}
+            onPress={() => {
+              handleCardPress(item?.id);
+              console.log("Pressed package with ID:", item.id);
             }}
           >
             <View style={{ flexDirection: "row", gap: mvs(12) }}>
