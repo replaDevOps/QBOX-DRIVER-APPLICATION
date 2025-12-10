@@ -2,7 +2,12 @@ import { mvs } from "@/utils/metrices";
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-  sectionContainer: { flex: 1, gap: 10, marginTop: 15 },
+  sectionContainer: {
+    flex: 1,
+    gap: 10,
+    marginVertical: 15,
+    paddingBottom: mvs(20),
+  },
   modalOverlay: {
     flex: 1,
     backgroundColor: "rgba(0, 0, 0, 0.5)",

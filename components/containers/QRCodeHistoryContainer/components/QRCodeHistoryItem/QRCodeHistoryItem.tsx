@@ -3,20 +3,9 @@ import { Colors, Spacing } from "@/constants";
 import { mvs } from "@/utils/metrices";
 import { format } from "date-fns";
 import { View } from "react-native";
-import { useData } from "./hooks";
 import { QRCodeHistoryItemProps } from "./props";
 
-export const QRCodeHistoryItem = ({
-  item,
-  onShare,
-  onMarkAsExpire,
-}: QRCodeHistoryItemProps) => {
-  const { qrCodeDescription } = useData({
-    item,
-    onShare,
-    onMarkAsExpire,
-  });
-
+export const QRCodeHistoryItem = ({ item }: QRCodeHistoryItemProps) => {
   const handleCardPress = () => {};
 
   return (
@@ -28,14 +17,14 @@ export const QRCodeHistoryItem = ({
       onPress={handleCardPress}
     >
       <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-        <Text style={{ fontWeight: "bold" }}>{item?.title}</Text>
+        <Text style={{ fontWeight: "bold" }}>{item?.qrCode}</Text>
         <Chip
           variant={item.isActive ? "success" : "error"}
           label={item.isActive ? "Active" : "Failed"}
           size="small"
         />
       </View>
-      <Text size="sm">{qrCodeDescription}</Text>
+      <Text size="sm">{item?.shortAddress}</Text>
       {item.isActive && (
         <View>
           <View
@@ -53,7 +42,7 @@ export const QRCodeHistoryItem = ({
               size="sm"
               style={{ marginTop: mvs(Spacing.sm) }}
             >
-              {format(item?.createdAt, "Pp")}
+              {format(new Date(item?.openedAt), "Pp")}
             </Text>
           </View>
           <View
@@ -71,7 +60,7 @@ export const QRCodeHistoryItem = ({
               size="sm"
               style={{ marginTop: mvs(Spacing.sm) }}
             >
-              {format(item?.createdAt, "Pp")}
+              {format(item?.closedAt, "Pp")}
             </Text>
           </View>
         </View>

@@ -5,6 +5,7 @@ import { mvs } from "@/utils/metrices";
 import { BlurView } from "expo-blur";
 import { Image } from "expo-image";
 import React, { useState } from "react";
+
 import {
   Modal,
   Pressable,
@@ -38,7 +39,6 @@ export const QRCodeAndLocation = ({
             width: "100%",
             height: 150,
             borderRadius: mvs(12),
-            backgroundColor: "red",
           }}
           contentFit="cover"
         />
@@ -96,7 +96,6 @@ export const QRCodeAndLocation = ({
             width: "100%",
             height: 150,
             borderRadius: mvs(12),
-            backgroundColor: "yellow",
           }}
           contentFit="cover"
         />
@@ -111,10 +110,8 @@ export const QRCodeAndLocation = ({
           style={{
             width: "100%",
             height: 150,
-            borderRadius: mvs(12),
-            backgroundColor: "orange",
+            borderRadius: 12,
           }}
-          contentFit="cover"
         />
       </View>
 
@@ -151,18 +148,15 @@ export const QRCodeAndLocation = ({
 
             <Card variant="filled" style={{ width: "100%" }}>
               <View style={styles.qrCodeContainer}>
-                <QRCodeIcon />
-
-                {/* <Image
-          source={qrCodeImage}
-          style={{
-            width: "100%",
-            height: 150,
-            borderRadius: mvs(12),
-            backgroundColor: "yellow",
-          }}
-          contentFit="cover"
-        /> */}
+                <Image
+                  source={qrCodeImage}
+                  style={{
+                    width: "100%",
+                    height: 150,
+                    borderRadius: mvs(12),
+                  }}
+                  contentFit="contain"
+                />
                 <Text>Expense-0123</Text>
               </View>
             </Card>

@@ -6,7 +6,7 @@ import {
   PackageWeightIcon,
 } from "@/assets/icons";
 import { PackageDetailsType } from "@/types";
-import { PACKAGE_TYPE, QR_VALIDITY_DURATION_TYPE } from "./enums";
+import { PACKAGE_TYPE } from "./enums";
 
 export interface StatusCardItem {
   id: string;
@@ -59,6 +59,45 @@ export const PENDING_DELIVERIES = [
   },
 ];
 
+export const COMPLETE_DELIVERIES = [
+  {
+    id: 1,
+    qBoxId: "X12345",
+    title: "Muhammad Jan",
+    shortAddress: "Saddar Karachi",
+    trackingId: "SM240095001",
+    createdAt: new Date("2025-01-19T12:00:00Z").toISOString(),
+    type: PACKAGE_TYPE.COMPLETE,
+  },
+  {
+    id: 2,
+    qBoxId: "H87790",
+    title: "Bilal",
+    shortAddress: "FastEx Logistics",
+    trackingId: "SM240815002",
+    createdAt: new Date("2025-01-20T09:30:00Z").toISOString(),
+    type: PACKAGE_TYPE.COMPLETE,
+  },
+  {
+    id: 3,
+    qBoxId: "X16745",
+    title: " Ahmed Raza",
+    shortAddress: "Saddar Rawalpindi",
+    trackingId: "SM24985001",
+    createdAt: new Date("2025-01-19T12:00:00Z").toISOString(),
+    type: PACKAGE_TYPE.COMPLETE,
+  },
+  {
+    id: 4,
+    qBoxId: "A67890",
+    title: "Driver: Umar ",
+    shortAddress: "FastEx Logistics",
+    trackingId: "GF2461592",
+    createdAt: new Date("2025-01-20T09:30:00Z").toISOString(),
+    type: PACKAGE_TYPE.COMPLETE,
+  },
+];
+
 export const PACKAGE_DETAILS: PackageDetailsType[] = [
   {
     id: 1,
@@ -67,11 +106,23 @@ export const PACKAGE_DETAILS: PackageDetailsType[] = [
     courierName: "John Doe (SwiftExpress)",
     shortAddress: "12th Street, Downtown",
     lastUpdate: "2025-01-16T09:20:00Z",
+
     attributes: [
       { icon: PackageTypeIcon, type: "Package Type", value: "Electronic" },
       { icon: PackageWeightIcon, type: "Package Weight", value: "1 kg" },
     ],
+
     imageUrl: require("@/assets/images/packageItem.jpg"),
+    qrCodeImageUrl: require("@/assets/images/qrCodeImage.png"),
+
+    liveLocationImageUrl: {
+      uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjac7VU_nynqpa3Vliakym3klMOtIkEMJyoQ&s",
+    },
+
+    packageDeliveryTutorialImage: {
+      uri: "https://assets-v2.lottiefiles.com/a/49847160-3f53-11ef-8109-cbcc69139eb2/fZaPRJe15G.gif",
+    },
+
     location: "Rider is 1.8 km away",
     packageDeilveryTutorial: "Keep your phone nearby for rider call.",
   },
@@ -82,161 +133,91 @@ export const PACKAGE_DETAILS: PackageDetailsType[] = [
     courierName: "Maria Khan (FastDrop)",
     shortAddress: "Sector F, Bahria Town",
     lastUpdate: "2025-01-16T08:10:00Z",
+
     attributes: [
       { icon: PackageTypeIcon, type: "Package Type", value: "Electronic" },
       { icon: PackageWeightIcon, type: "Package Weight", value: "1 kg" },
     ],
+
     imageUrl: require("@/assets/images/packageItem.jpg"),
+    qrCodeImageUrl: require("@/assets/images/qrCodeImage.png"),
+
+    liveLocationImageUrl: {
+      uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjac7VU_nynqpa3Vliakym3klMOtIkEMJyoQ&s",
+    },
+
+    packageDeliveryTutorialImage: {
+      uri: "https://assets-v2.lottiefiles.com/a/49847160-3f53-11ef-8109-cbcc69139eb2/fZaPRJe15G.gif",
+    },
+
     location: "Rider is 3.4 km away",
     packageDeilveryTutorial: "Be available at your home.",
   },
-
-  {
-    id: 201,
-    qBoxId: "QBX-99110",
-    type: PACKAGE_TYPE.COMPLETE,
-    courierName: "Ahmed Raza (BlueCourier)",
-    shortAddress: "Model Town, Block C",
-    lastUpdate: "2025-01-14T17:45:00Z",
-    attributes: [
-      { icon: PackageTypeIcon, type: "Package Type", value: "Electronic" },
-      { icon: PackageWeightIcon, type: "Package Weight", value: "1 kg" },
-    ],
-    imageUrl: require("@/assets/images/packageItem.jpg"),
-    location: "Delivered to your doorstep",
-    packageDeilveryTutorial:
-      "Your package was delivered successfully. Check your doorstep.",
-  },
-  {
-    id: 202,
-    qBoxId: "QBX-66221",
-    type: PACKAGE_TYPE.COMPLETE,
-    courierName: "Sana Malik (CargoPro)",
-    shortAddress: "Garden Town, Lahore",
-    lastUpdate: "2025-01-13T13:25:00Z",
-    attributes: [
-      { icon: PackageTypeIcon, type: "Package Type", value: "Electronic" },
-      { icon: PackageWeightIcon, type: "Package Weight", value: "1 kg" },
-    ],
-    imageUrl: require("@/assets/images/packageItem.jpg"),
-    location: "Left at your front gate",
-    packageDeilveryTutorial:
-      "You can collect the package from your entry gate.",
-  },
-
-  {
-    id: 301,
-    qBoxId: "QBX-44129",
-    type: PACKAGE_TYPE.UPCOMING,
-    courierName: "Rider Assigned Soon",
-    shortAddress: "Phase 4, DHA Lahore",
-    lastUpdate: "2025-01-18T10:00:00Z",
-    attributes: [
-      { icon: PackageTypeIcon, type: "Package Type", value: "Electronic" },
-      { icon: PackageWeightIcon, type: "Package Weight", value: "1 kg" },
-    ],
-    imageUrl: require("@/assets/images/packageItem.jpg"),
-    location: "Label created, awaiting pickup",
-    packageDeilveryTutorial:
-      "You will receive updates once the courier picks it.",
-  },
-  {
-    id: 302,
-    qBoxId: "QBX-77290",
-    type: PACKAGE_TYPE.UPCOMING,
-    courierName: "Awaiting Courier",
-    shortAddress: "PECHS Block 2, Karachi",
-    lastUpdate: "2025-01-18T11:30:00Z",
-    attributes: [
-      { icon: PackageTypeIcon, type: "Package Type", value: "Electronic" },
-      { icon: PackageWeightIcon, type: "Package Weight", value: "1 kg" },
-    ],
-    imageUrl: require("@/assets/images/packageItem.jpg"),
-    location: "Shipment booked, not yet picked",
-    packageDeilveryTutorial:
-      "Your package is being prepared. Delivery will start soon.",
-  },
 ];
 
-export const QR_CODE_HISTORY = [
+export const QR_SCAN_HISTORY = [
   {
     id: 1,
-    title: "Entrance Gate QR",
+    qrCode: "QWERT12345",
+    shortAddress: "Main Entrance Access",
     isActive: true,
-    createdAt: new Date("2025-01-10T10:15:00Z").toISOString(),
-    validityDuration: 15,
-    validityDurationType: QR_VALIDITY_DURATION_TYPE.MIN,
-    maxUsers: 20,
-    usersLeft: 10,
+    openedAt: new Date("2024-03-10T10:19:00Z").toISOString(),
+    closedAt: new Date("2025-01-10T10:15:00Z").toISOString(),
   },
   {
     id: 2,
-    title: "Cafeteria Access",
+    qrCode: "ASDFG67890",
+    shortAddress: "Main Entrance Access",
     isActive: false,
-    createdAt: new Date("2025-01-02T09:00:00Z").toISOString(),
-    validityDuration: 2,
-    validityDurationType: QR_VALIDITY_DURATION_TYPE.HOUR,
-    maxUsers: 50,
-    usersLeft: 20,
+    openedAt: new Date("2024-03-10T10:19:00Z").toISOString(),
+    closedAt: new Date("2025-01-02T09:00:00Z").toISOString(),
   },
   {
     id: 3,
-    title: "Conference Room QR",
+    qrCode: "ZXCVB12345",
+    shortAddress: "Main Entrance Access",
     isActive: true,
-    createdAt: new Date("2025-01-11T14:45:00Z").toISOString(),
-    validityDuration: 1,
-    validityDurationType: QR_VALIDITY_DURATION_TYPE.DAY,
-    maxUsers: 5,
-    usersLeft: 2,
+    openedAt: new Date("2024-03-10T10:19:00Z").toISOString(),
+    closedAt: new Date("2025-01-11T14:45:00Z").toISOString(),
   },
   {
     id: 4,
-    title: "Event Guest Entry",
+    qrCode: "TER567898",
+    shortAddress: "Main Entrance Access",
     isActive: true,
-    createdAt: new Date("2025-01-12T18:30:00Z").toISOString(),
-    validityDuration: 30,
-    validityDurationType: QR_VALIDITY_DURATION_TYPE.MIN,
-    maxUsers: 200,
-    usersLeft: 90,
+    openedAt: new Date("2024-03-10T10:19:00Z").toISOString(),
+    closedAt: new Date("2025-01-12T18:30:00Z").toISOString(),
   },
   {
     id: 5,
-    title: "VIP Lounge Access",
+    qrCode: "DFR456757",
+    shortAddress: "Main Entrance Access",
     isActive: false,
-    createdAt: new Date("2025-01-05T11:20:00Z").toISOString(),
-    validityDuration: 12,
-    validityDurationType: QR_VALIDITY_DURATION_TYPE.HOUR,
-    maxUsers: 10,
-    usersLeft: 0,
+    openedAt: new Date("2024-03-10T10:19:00Z").toISOString(),
+    closedAt: new Date("2025-01-05T11:20:00Z").toISOString(),
   },
   {
     id: 6,
-    title: "Parking Zone QR",
+    qrCode: "RW54657657",
+    shortAddress: "Main Entrance Access",
     isActive: true,
-    createdAt: new Date("2025-01-09T07:10:00Z").toISOString(),
-    validityDuration: 2,
-    validityDurationType: QR_VALIDITY_DURATION_TYPE.DAY,
-    maxUsers: 300,
-    usersLeft: 100,
+    openedAt: new Date("2024-03-10T10:19:00Z").toISOString(),
+    closedAt: new Date("2025-01-09T07:10:00Z").toISOString(),
   },
   {
     id: 7,
-    title: "Temporary Office QR",
+    qrCode: "RW54657574",
+    shortAddress: "Main Entrance Access",
     isActive: true,
-    createdAt: new Date("2025-01-12T09:40:00Z").toISOString(),
-    validityDuration: 45,
-    validityDurationType: QR_VALIDITY_DURATION_TYPE.MIN,
-    maxUsers: 3,
-    usersLeft: 2,
+    openedAt: new Date("2024-03-10T10:19:00Z").toISOString(),
+    closedAt: new Date("2025-01-12T09:40:00Z").toISOString(),
   },
   {
     id: 8,
-    title: "Employee Training Session",
+    qrCode: "KJH567857",
+    shortAddress: "Main Entrance Access",
     isActive: false,
-    createdAt: new Date("2025-01-01T13:00:00Z").toISOString(),
-    validityDuration: 24,
-    validityDurationType: QR_VALIDITY_DURATION_TYPE.HOUR,
-    maxUsers: 50,
-    usersLeft: 10,
+    openedAt: new Date("2024-03-10T10:19:00Z").toISOString(),
+    closedAt: new Date("2025-01-01T13:00:00Z").toISOString(),
   },
 ];

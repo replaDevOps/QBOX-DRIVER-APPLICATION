@@ -1,10 +1,20 @@
+import { StatusCardsGrid } from "@/components";
+import PaclagesList from "@/components/common/PaclagesList/PaclagesList";
+import { COMPLETE_DELIVERIES, STATUS_CARDS_DATA } from "@/constants";
+import { mvs } from "@/utils/metrices";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 const History = () => {
   return (
-    <View>
-      <Text>History</Text>
+    <View style={{ flex: 1, alignItems: "center", paddingVertical: mvs(20) }}>
+      <StatusCardsGrid
+        title="My Statistics"
+        subtitile="Today's Statistics"
+        data={STATUS_CARDS_DATA}
+      />
+
+      <PaclagesList title="Completed Deliveries" data={COMPLETE_DELIVERIES} />
     </View>
   );
 };

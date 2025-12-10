@@ -12,3 +12,9 @@ export enum QR_VALIDITY_DURATION_TYPE {
   HOUR = "hour",
   DAY = "day",
 }
+
+export const PACKAGES_OPTIONS = [
+  { label: "Pending", value: PACKAGE_TYPE.PENDING },
+  { label: "Upcoming", value: PACKAGE_TYPE.UPCOMING },
+  { label: "Complete", value: PACKAGE_TYPE.COMPLETE },
+];

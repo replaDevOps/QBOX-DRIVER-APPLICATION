@@ -3,16 +3,13 @@ import PaclagesList from "@/components/common/PaclagesList/PaclagesList";
 import { PENDING_DELIVERIES, STATUS_CARDS_DATA } from "@/constants";
 import { mvs } from "@/utils/metrices";
 import React, { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { View } from "react-native";
 
 const Home = () => {
   const [isAlarmEnabled, setIsAlarmEnabled] = useState(false);
 
   return (
-    <View
-      style={{ flex: 1, alignItems: "center", paddingBottom: mvs(20) }}
-      //   contentContainerStyle={{  }}
-    >
+    <View style={{ flex: 1, alignItems: "center", paddingBottom: mvs(20) }}>
       <StatusCard
         isEnabled={isAlarmEnabled}
         onToggle={() => setIsAlarmEnabled(!isAlarmEnabled)}
@@ -30,5 +27,3 @@ const Home = () => {
 };
 
 export default Home;
-
-const styles = StyleSheet.create({});

@@ -27,6 +27,7 @@ export const PackageDetails = () => {
   // Modal states
   const [isCallModalVisible, setIsCallModalVisible] = useState(false);
   const [isContactModalVisible, setIsContactModalVisible] = useState(false);
+  const [showRequestOtpFeild, setShowRequestOtpFeild] = useState(false);
 
   // Checkbox options state
   const [checkboxOptions, setCheckboxOptions] = useState([
@@ -109,6 +110,7 @@ export const PackageDetails = () => {
     // Close the call modal and open contact number modal
     setIsCallModalVisible(false);
     setIsContactModalVisible(true);
+    setShowRequestOtpFeild(true);
   };
 
   if (loading) {
@@ -136,22 +138,25 @@ export const PackageDetails = () => {
     <View style={styles.container}>
       <ScrollView style={styles.scrollView}>
         <PackageDetailsHeader packageData={packageData} />
-        <OTPRequest
-          onPress={RequestOtp}
-          showOtpInput={showOtpInput}
-          control={control}
-        />
+        {showRequestOtpFeild && (
+          <OTPRequest
+            onPress={RequestOtp}
+            showOtpInput={showOtpInput}
+            control={control}
+          />
+        )}
 
-        <PackageDetailsAttribute attributes={packageData.attributes} />
+        <PackageDetailsAttribute attributes={packageData.attributes ?? []} />
         <QRCodeAndLocation
           qBoxImage={packageData.imageUrl}
-          qrCodeImage={packageData.imageUrl}
-          liveLocationImage={packageData.imageUrl}
-          packageDeliveryTutorialImage={packageData.imageUrl}
+          qrCodeImage={packageData.qrCodeImageUrl}
+          liveLocationImage={packageData.liveLocationImageUrl}
+          packageDeliveryTutorialImage={
+            packageData.packageDeliveryTutorialImage
+          }
         />
       </ScrollView>
 
-      {/* Call Home-Owner Modal */}
       <CallHomeOwnerModal
         visible={isCallModalVisible}
         onClose={() => setIsCallModalVisible(false)}
@@ -163,7 +168,6 @@ export const PackageDetails = () => {
         onCheckboxChange={handleCheckboxChange}
       />
 
-      {/* Contact Number Modal */}
       <ContactNumberModal
         visible={isContactModalVisible}
         onClose={() => setIsContactModalVisible(false)}

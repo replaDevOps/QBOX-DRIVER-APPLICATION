@@ -13,10 +13,17 @@ export interface PackageBase {
   courierName: string;
   shortAddress: string;
   lastUpdate: string;
-  attributes: PackageAttribute[];
-  imageUrl: any;
-  location: string;
-  packageDeilveryTutorial: string;
+  attributes?: PackageAttribute[];
+  qrCodeImageUrl?: any;
+  liveLocationImageUrl?: {
+    uri: string;
+  };
+  packageDeliveryTutorialImage?: {
+    uri?: string;
+  };
+  imageUrl?: any;
+  location?: string;
+  packageDeilveryTutorial?: string;
 }
 
 export interface Complete extends PackageBase {

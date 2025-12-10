@@ -40,7 +40,7 @@ const PaclagesList = ({ title, data }: PaclagesListProps) => {
               width: "100%",
             }}
             onPress={() => {
-              handleCardPress(item?.id);
+              item.type === PACKAGE_TYPE.PENDING && handleCardPress(item.id);
               console.log("Pressed package with ID:", item.id);
             }}
           >
@@ -68,11 +68,11 @@ const PaclagesList = ({ title, data }: PaclagesListProps) => {
                     justifyContent: "space-between",
                   }}
                 >
-                  <Text bold style={{ width: "40%" }} numberOfLines={1}>
+                  <Text bold numberOfLines={1}>
                     {item.title}
                   </Text>
                 </View>
-                <View style={{ position: "absolute", right: 0, top: 0 }}>
+                <View style={{ position: "absolute", right: -5, top: -10 }}>
                   {item.type === PACKAGE_TYPE.PENDING && item.status && (
                     <Chip
                       label={item.status}

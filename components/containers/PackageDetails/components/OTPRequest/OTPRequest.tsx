@@ -3,6 +3,7 @@ import { Colors } from "@/constants";
 import React, { useCallback, useState } from "react";
 import { Control } from "react-hook-form"; // Import the type if using TypeScript
 import { Text } from "react-native";
+import { Toast } from "toastify-react-native";
 
 // Better typing (optional but recommended)
 interface OTPRequestProps {
@@ -52,7 +53,18 @@ export const OTPRequest = ({
           endButtonText={otpButtonConfig.text}
           autoCorrect={false}
           placeholder="XXXX"
-          onEndButtonClick={() => setIsOtpVerified(true)}
+          onEndButtonClick={() => {
+            setIsOtpVerified(true);
+            Toast.show({
+              type: "warn",
+              text1: "Make sure you hand over the package to the homeowner",
+              position: "top",
+              backgroundColor: Colors.white,
+              textColor: Colors.text,
+              progressBarColor: Colors.white,
+              visibilityTime: 3000,
+            });
+          }}
           endButtonProps={{
             variant: otpButtonConfig.variant,
             textStyle: { color: otpButtonConfig.textColor },

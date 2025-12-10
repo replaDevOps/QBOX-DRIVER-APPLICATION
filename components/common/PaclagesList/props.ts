@@ -5,7 +5,7 @@ export interface PackageItem {
   shortAddress: string;
   trackingId: string;
   createdAt: string;
-  status: string | null;
+  status?: string | null;
   type: string;
 }
 

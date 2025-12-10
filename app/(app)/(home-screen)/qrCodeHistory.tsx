@@ -1,21 +1,10 @@
 import { EmptyList, QRCodeHistoryItem, Text } from "@/components";
-import { QR_CODE_HISTORY, Spacing } from "@/constants";
-import { QRCode } from "@/types";
+import { QR_SCAN_HISTORY, Spacing } from "@/constants";
 import { mvs } from "@/utils/metrices";
 import { FlatList, View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 export const QRCodeHistory = () => {
-  const handleShare = (item: QRCode) => {
-    // Implement share functionality
-    console.log("Sharing QR Code:", item.title);
-  };
-
-  const handleMarkAsExpire = (item: QRCode) => {
-    // Implement mark as expire functionality
-    console.log("Marking as expired:", item.id);
-  };
-
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <View
@@ -25,7 +14,7 @@ export const QRCodeHistory = () => {
         }}
       >
         <FlatList
-          data={QR_CODE_HISTORY}
+          data={QR_SCAN_HISTORY}
           keyExtractor={(item) => item?.id?.toString()}
           showsVerticalScrollIndicator={false}
           ListHeaderComponent={
@@ -44,13 +33,7 @@ export const QRCodeHistory = () => {
             </View>
           }
           ListEmptyComponent={<EmptyList title="QR Scan" marginTop={100} />}
-          renderItem={({ item }) => (
-            <QRCodeHistoryItem
-              item={item}
-              onShare={handleShare}
-              onMarkAsExpire={handleMarkAsExpire}
-            />
-          )}
+          renderItem={({ item }: any) => <QRCodeHistoryItem item={item} />}
         />
       </View>
     </GestureHandlerRootView>
