@@ -30,7 +30,7 @@ export const StatusCard = ({ isEnabled, onToggle }: StatusCardProps) => {
 
 const styles = StyleSheet.create({
   container: {
-    margin: mvs(Spacing.lg),
+    marginVertical: mvs(Spacing.lg),
   },
   content: {
     flexDirection: "row",

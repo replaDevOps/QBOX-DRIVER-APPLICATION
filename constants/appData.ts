@@ -98,6 +98,45 @@ export const COMPLETE_DELIVERIES = [
   },
 ];
 
+export const UPCOMING_DELIVERIES = [
+  {
+    id: 1,
+    qBoxId: "U11223",
+    title: "Ali Raza / Ahmed Khan",
+    shortAddress: "SwiftExpress",
+    trackingId: "SM250101001",
+    createdAt: new Date("2025-01-21T10:00:00Z").toISOString(),
+    type: PACKAGE_TYPE.UPCOMING,
+  },
+  {
+    id: 2,
+    qBoxId: "U44556",
+    title: "Driver: Sara / Sender: Bilal",
+    shortAddress: "FastDrop Logistics",
+    trackingId: "SM250101002",
+    createdAt: new Date("2025-01-22T14:30:00Z").toISOString(),
+    type: PACKAGE_TYPE.UPCOMING,
+  },
+  {
+    id: 3,
+    qBoxId: "U77889",
+    title: "John Doe / Customer: Ali",
+    shortAddress: "QuickShip",
+    trackingId: "SM250101003",
+    createdAt: new Date("2025-01-23T09:15:00Z").toISOString(),
+    type: PACKAGE_TYPE.UPCOMING,
+  },
+  {
+    id: 4,
+    qBoxId: "U99001",
+    title: "Driver: Ayesha / Sender: Omar",
+    shortAddress: "RapidExpress",
+    trackingId: "SM250101004",
+    createdAt: new Date("2025-01-24T08:45:00Z").toISOString(),
+    type: PACKAGE_TYPE.UPCOMING,
+  },
+];
+
 export const PACKAGE_DETAILS: PackageDetailsType[] = [
   {
     id: 1,

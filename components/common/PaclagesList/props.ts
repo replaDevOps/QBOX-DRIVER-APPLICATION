@@ -10,6 +10,6 @@ export interface PackageItem {
 }
 
 export interface PaclagesListProps {
-  title: string;
+  title?: string;
   data: PackageItem[]; // You'll need to define this type
 }

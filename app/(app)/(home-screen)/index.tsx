@@ -9,7 +9,7 @@ const Home = () => {
   const [isAlarmEnabled, setIsAlarmEnabled] = useState(false);
 
   return (
-    <View style={{ flex: 1, alignItems: "center", paddingBottom: mvs(20) }}>
+    <View style={{ flex: 1, alignItems: "center", padding: mvs(20) }}>
       <StatusCard
         isEnabled={isAlarmEnabled}
         onToggle={() => setIsAlarmEnabled(!isAlarmEnabled)}

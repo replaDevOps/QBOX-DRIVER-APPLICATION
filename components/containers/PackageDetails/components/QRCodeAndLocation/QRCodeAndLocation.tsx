@@ -5,6 +5,7 @@ import { mvs } from "@/utils/metrices";
 import { BlurView } from "expo-blur";
 import { Image } from "expo-image";
 import React, { useState } from "react";
+import ImageViewing from "react-native-image-viewing";
 
 import {
   Modal,
@@ -22,6 +23,8 @@ export const QRCodeAndLocation = ({
   packageDeliveryTutorialImage,
 }: any) => {
   const [isQRModalVisible, setIsQRModalVisible] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const images = [qBoxImage];
 
   return (
     <View style={styles.sectionContainer}>
@@ -33,15 +36,16 @@ export const QRCodeAndLocation = ({
         <Text bold color={Colors.dark}>
           QBox Image
         </Text>
-        <Image
-          source={qBoxImage}
-          style={{
-            width: "100%",
-            height: 150,
-            borderRadius: mvs(12),
-          }}
-          contentFit="cover"
-        />
+        <TouchableOpacity onPress={() => setVisible(true)}>
+          <Image
+            source={qBoxImage}
+            style={{
+              width: "100%",
+              height: 150,
+              borderRadius: mvs(12),
+            }}
+          />
+        </TouchableOpacity>
       </View>
 
       <View>
@@ -114,6 +118,13 @@ export const QRCodeAndLocation = ({
           }}
         />
       </View>
+
+      <ImageViewing
+        images={images}
+        imageIndex={0}
+        visible={visible}
+        onRequestClose={() => setVisible(false)}
+      />
 
       {/* QR Code Modal */}
       <Modal

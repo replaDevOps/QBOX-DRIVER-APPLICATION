@@ -7,7 +7,7 @@ import { StyleSheet, View } from "react-native";
 
 const History = () => {
   return (
-    <View style={{ flex: 1, alignItems: "center", paddingVertical: mvs(20) }}>
+    <View style={{ flex: 1, alignItems: "center", padding: mvs(20) }}>
       <StatusCardsGrid
         title="My Statistics"
         subtitile="Today's Statistics"

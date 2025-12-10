@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: Spacing.lg,
     width: "100%",
-    paddingHorizontal: Spacing.lg,
+    padding: Spacing.lg,
   },
 });
 

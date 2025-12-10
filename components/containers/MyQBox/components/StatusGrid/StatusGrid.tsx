@@ -32,7 +32,6 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     flexWrap: "wrap",
-    width: "90%",
     gap: mvs(8),
     justifyContent: "space-between",
   },

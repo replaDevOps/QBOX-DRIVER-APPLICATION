@@ -17,13 +17,20 @@ const PaclagesList = ({ title, data }: PaclagesListProps) => {
   return (
     <View
       style={{
-        width: "90%",
-        marginTop: mvs(Spacing.lg),
+        width: "100%",
+        marginTop: mvs(Spacing.md),
+        flex: 1,
       }}
     >
-      <Text bold color={Colors.dark} style={{ marginBottom: mvs(Spacing.sm) }}>
-        {title}
-      </Text>
+      {title && (
+        <Text
+          bold
+          color={Colors.dark}
+          style={{ marginBottom: mvs(Spacing.sm) }}
+        >
+          {title}
+        </Text>
+      )}
       <FlatList
         data={data}
         keyExtractor={(item) => item.id.toString()}
@@ -68,7 +75,7 @@ const PaclagesList = ({ title, data }: PaclagesListProps) => {
                     justifyContent: "space-between",
                   }}
                 >
-                  <Text bold numberOfLines={1}>
+                  <Text bold numberOfLines={1} style={{ marginTop: mvs(2) }}>
                     {item.title}
                   </Text>
                 </View>
