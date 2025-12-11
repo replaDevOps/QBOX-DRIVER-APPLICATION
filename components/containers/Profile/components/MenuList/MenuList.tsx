@@ -15,6 +15,7 @@ export const MenuList = ({ menuData }: MenuListProps) => {
           backgroundColor={item?.backgroundColor}
           path={item?.path}
           rightText={item?.rightText}
+          rightTextColor={item?.rightTextColor}
           textColor={item?.textColor}
           icon={item?.icon}
           onPress={async () => item?.title === "Logout" && (await logout())}

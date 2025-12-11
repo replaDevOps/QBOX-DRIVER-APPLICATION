@@ -13,6 +13,7 @@ export const MenuItem = ({
   backgroundColor,
   textColor,
   rightText,
+  rightTextColor,
   onPress,
   icon,
 }: MenuItemProps) => {
@@ -35,12 +36,14 @@ export const MenuItem = ({
         <Text style={{ color: textColor || Colors.text }}>{title}</Text>
       </View>
 
-      {path && (
-        <View style={{ flexDirection: "row", gap: mvs(10) }}>
-          {rightText && <Text variant="secondary">{rightText}</Text>}
-          <Ionicons name="chevron-forward" size={24} />
-        </View>
-      )}
+      <View style={{ flexDirection: "row", gap: mvs(10) }}>
+        {rightText && (
+          <Text variant="secondary" style={{ color: rightTextColor }}>
+            {rightText}
+          </Text>
+        )}
+        {path && <Ionicons name="chevron-forward" size={24} />}
+      </View>
     </Card>
   );
 };

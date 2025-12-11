@@ -1,5 +1,6 @@
 import { Stepper, Text } from "@/components";
 import { Spacing } from "@/constants";
+import { mvs } from "@/utils/metrices";
 import { KeyboardAvoidingView, Platform, ScrollView, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { FormLayoutProps } from "./props";
@@ -29,7 +30,7 @@ export const FormLayout = ({
           <ScrollView
             keyboardShouldPersistTaps="handled"
             showsVerticalScrollIndicator={false}
-            contentContainerStyle={{ paddingBottom: 150 }}
+            contentContainerStyle={{ paddingBottom: mvs(120) }}
           >
             <View
               style={{

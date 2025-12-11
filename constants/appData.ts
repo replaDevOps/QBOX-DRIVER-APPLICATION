@@ -1,12 +1,17 @@
 import {
   CameraIcon,
+  ContactIcon,
+  LanguageIcon,
   LED_IndicatorIcon,
+  LogoutIcon,
   OnlineStatusIcon,
   PackageTypeIcon,
   PackageWeightIcon,
+  PasswordIcon,
 } from "@/assets/icons";
-import { PackageDetailsType } from "@/types";
+import { PackageDetailsType, ProfileItem } from "@/types";
 import { PACKAGE_TYPE } from "./enums";
+import { Colors } from "./theme";
 
 export interface StatusCardItem {
   id: string;
@@ -14,6 +19,39 @@ export interface StatusCardItem {
   title: string;
   value: string;
 }
+
+export const MENU_ITEM: ProfileItem[] = [
+  {
+    id: 1,
+    title: "Total Deliveries",
+    rightText: "45",
+    backgroundColor: Colors.primary,
+    textColor: Colors.white,
+    rightTextColor: Colors.white,
+  },
+  {
+    id: 2,
+    icon: LanguageIcon,
+    title: "Language",
+    path: "/appLanguage",
+    rightText: "English",
+  },
+  {
+    id: 3,
+    icon: PasswordIcon,
+    title: "Password",
+    path: "/passwordManager",
+  },
+
+  { id: 4, icon: ContactIcon, title: "Contact Us", path: "/" },
+  {
+    id: 5,
+    icon: LogoutIcon,
+    title: "Logout",
+    backgroundColor: Colors.lightRed,
+    textColor: Colors.danger,
+  },
+];
 
 export const STATUS_CARDS_DATA: StatusCardItem[] = [
   {

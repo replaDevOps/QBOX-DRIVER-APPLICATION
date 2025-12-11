@@ -5,6 +5,7 @@ export interface MenuItemProps {
   title: string;
   rightText?: string;
   textColor?: string;
+  rightTextColor?: string;
   backgroundColor?: string;
   path?: Href;
   onPress?: (event: GestureResponderEvent) => void;

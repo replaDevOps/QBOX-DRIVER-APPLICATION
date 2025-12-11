@@ -3,6 +3,8 @@ import { Button, Card, Text } from "@/components/ui";
 import { Colors } from "@/constants";
 import { mvs } from "@/utils/metrices";
 import { BlurView } from "expo-blur";
+import { Platform } from "react-native";
+
 import { Image } from "expo-image";
 import React, { useState } from "react";
 import ImageViewing from "react-native-image-viewing";
@@ -73,20 +75,39 @@ export const QRCodeAndLocation = ({
             <QRCodeIcon />
           </View>
 
-          <BlurView
-            intensity={15}
-            tint="light"
-            style={[
-              StyleSheet.absoluteFill,
-              { justifyContent: "center", alignItems: "center" },
-            ]}
-          >
-            <Button
-              title="View"
-              onPress={() => setIsQRModalVisible(true)}
-              style={{ width: "30%" }}
-            />
-          </BlurView>
+          {Platform.OS === "ios" ? (
+            <BlurView
+              intensity={15}
+              tint="light"
+              style={[
+                StyleSheet.absoluteFill,
+                { justifyContent: "center", alignItems: "center" },
+              ]}
+            >
+              <Button
+                title="View"
+                onPress={() => setIsQRModalVisible(true)}
+                style={{ width: "30%" }}
+              />
+            </BlurView>
+          ) : (
+            <View
+              style={[
+                StyleSheet.absoluteFill,
+                {
+                  justifyContent: "center",
+                  alignItems: "center",
+                  backgroundColor: "rgba(255, 255, 255, 0.8)",
+                },
+              ]}
+            >
+              <Button
+                title="View"
+                onPress={() => setIsQRModalVisible(true)}
+                style={{ width: "30%" }}
+              />
+            </View>
+          )}
         </View>
       </View>
 
