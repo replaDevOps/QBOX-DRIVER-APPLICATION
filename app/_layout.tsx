@@ -1,4 +1,5 @@
 import { Colors, CustomNavigationTheme } from "@/constants";
+import { ModalProvider } from "@/context";
 import { AuthProvider } from "@/context/AuthContext";
 import { AppNavigation } from "@/navigation";
 import { ThemeProvider } from "@react-navigation/native";
@@ -21,7 +22,9 @@ export const RootLayout = () => {
     <SafeAreaView edges={["bottom"]} style={styles.container}>
       <ThemeProvider value={CustomNavigationTheme}>
         <AuthProvider>
-          <AppNavigation />
+          <ModalProvider>
+            <AppNavigation />
+          </ModalProvider>
         </AuthProvider>
         <StatusBar style="dark" />
       </ThemeProvider>
