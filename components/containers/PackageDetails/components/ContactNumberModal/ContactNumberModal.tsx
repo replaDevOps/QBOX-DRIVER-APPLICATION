@@ -2,6 +2,7 @@ import { Text } from "@/components/ui";
 import { Colors } from "@/constants";
 import { mvs } from "@/utils/metrices";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import * as Clipboard from "expo-clipboard";
 import React from "react";
 import {
   Modal,
@@ -25,8 +26,15 @@ export const ContactNumberModal = ({
   title = "Contact Number",
 }: ContactNumberModalProps) => {
   const handleCopyToClipboard = async () => {
+    await Clipboard.setStringAsync(phoneNumber);
     setCopySuccess(true);
+
+    // Reset after a second (optional)
+    setTimeout(() => {
+      setCopySuccess(false);
+    }, 1500);
   };
+
   const [copySuccess, setCopySuccess] = React.useState(false);
 
   return (
