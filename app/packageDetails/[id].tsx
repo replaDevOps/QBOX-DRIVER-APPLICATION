@@ -68,6 +68,8 @@ export const PackageDetails = () => {
 
   useLayoutEffect(() => {
     navigation.setOptions({
+      headerTitle: () => <AppHeaderTitle title="" />,
+
       headerLeft: () => (
         <View
           style={{
@@ -80,8 +82,8 @@ export const PackageDetails = () => {
           <AppHeaderTitle
             title={
               packageData?.courierName || packageData
-                ? `Package #${packageData.id}`
-                : "Package Not Found"
+                ? `${packageData.trackingId}`
+                : "Package Not F   ound"
             }
           />
         </View>

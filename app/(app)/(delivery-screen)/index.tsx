@@ -1,5 +1,4 @@
-import { SegmentedControl } from "@/components";
-import PaclagesList from "@/components/common/PaclagesList/PaclagesList";
+import { PackagesList, SegmentedControl } from "@/components";
 import {
   PACKAGE_TYPE,
   PENDING_DELIVERIES,
@@ -8,7 +7,7 @@ import {
 } from "@/constants";
 import { mvs } from "@/utils/metrices";
 import React, { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { View } from "react-native";
 
 const Delivery = () => {
   const [selectedDeliveryType, setSelectedDeliveryType] = useState<string>(
@@ -34,15 +33,13 @@ const Delivery = () => {
       />
 
       {selectedDeliveryType === PACKAGE_TYPE.PENDING && (
-        <PaclagesList data={PENDING_DELIVERIES} />
+        <PackagesList data={PENDING_DELIVERIES} />
       )}
       {selectedDeliveryType === PACKAGE_TYPE.UPCOMING && (
-        <PaclagesList data={UPCOMING_DELIVERIES} />
+        <PackagesList data={UPCOMING_DELIVERIES} />
       )}
     </View>
   );
 };
 
 export default Delivery;
-
-const styles = StyleSheet.create({});

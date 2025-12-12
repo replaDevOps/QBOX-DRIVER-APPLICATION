@@ -1,5 +1,4 @@
-import { StatusCard, StatusCardsGrid } from "@/components";
-import PaclagesList from "@/components/common/PaclagesList/PaclagesList";
+import { PackagesList, StatusCard, StatusCardsGrid } from "@/components";
 import { PENDING_DELIVERIES, STATUS_CARDS_DATA } from "@/constants";
 import { mvs } from "@/utils/metrices";
 import React, { useState } from "react";
@@ -9,7 +8,7 @@ const Home = () => {
   const [isAlarmEnabled, setIsAlarmEnabled] = useState(false);
 
   return (
-    <View style={{ flex: 1, alignItems: "center", padding: mvs(20) }}>
+    <View style={{ flex: 1, alignItems: "center", paddingHorizontal: mvs(20) }}>
       <StatusCard
         isEnabled={isAlarmEnabled}
         onToggle={() => setIsAlarmEnabled(!isAlarmEnabled)}
@@ -21,7 +20,7 @@ const Home = () => {
         data={STATUS_CARDS_DATA}
       />
 
-      <PaclagesList title="Pending Deliveries" data={PENDING_DELIVERIES} />
+      <PackagesList title="Pending Deliveries" data={PENDING_DELIVERIES} />
     </View>
   );
 };

@@ -6,6 +6,7 @@ export * from "./Layout";
 export * from "./Modal";
 export * from "./OTPModal";
 export * from "./PackageInformation";
+export * from "./PackagesList";
 export * from "./PaymentSection";
 export * from "./QBoxLocation";
 export * from "./RadioButton";

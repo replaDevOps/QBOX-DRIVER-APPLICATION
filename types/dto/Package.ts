@@ -10,6 +10,8 @@ export interface PackageBase {
   id: number;
   qBoxId: string;
   type: PACKAGE_TYPE;
+  trackingId: string;
+
   courierName: string;
   shortAddress: string;
   lastUpdate: string;

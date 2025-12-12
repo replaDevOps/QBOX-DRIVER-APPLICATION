@@ -179,6 +179,7 @@ export const PACKAGE_DETAILS: PackageDetailsType[] = [
   {
     id: 1,
     qBoxId: "QBX-55112",
+    trackingId: "SM240815001",
     type: PACKAGE_TYPE.PENDING,
     courierName: "John Doe (SwiftExpress)",
     shortAddress: "12th Street, Downtown",
@@ -206,6 +207,8 @@ export const PACKAGE_DETAILS: PackageDetailsType[] = [
   {
     id: 2,
     qBoxId: "QBX-78100",
+    trackingId: "SM240815002",
+
     type: PACKAGE_TYPE.PENDING,
     courierName: "Maria Khan (FastDrop)",
     shortAddress: "Sector F, Bahria Town",

@@ -9,7 +9,7 @@ import { FlatList, StyleSheet, View } from "react-native";
 import { EmptyList } from "../EmptyList";
 import { PaclagesListProps } from "./props";
 
-const PaclagesList = ({ title, data }: PaclagesListProps) => {
+export const PackagesList = ({ title, data }: PaclagesListProps) => {
   const handleCardPress = (id: number) => {
     router.navigate(`/packageDetails/${id}`);
   };
@@ -117,6 +117,6 @@ const PaclagesList = ({ title, data }: PaclagesListProps) => {
   );
 };
 
-export default PaclagesList;
+export default PackagesList;
 
 const styles = StyleSheet.create({});
