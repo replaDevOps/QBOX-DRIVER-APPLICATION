@@ -17,12 +17,6 @@ export default function DeliveryStack() {
         name="index"
         options={{ title: "Delivery", headerShown: false }}
       />
-      <Stack.Screen
-        name="packageDetails/[id]"
-        options={{
-          title: "",
-        }}
-      />
     </Stack>
   );
 }

@@ -33,20 +33,6 @@ export const AppTabLayout = () => {
     "/deliveries",
   ].includes(pathname);
 
-  // Get dynamic title for nested screens
-  const getScreenTitle = () => {
-    for (const [path, title] of Object.entries(NESTED_SCREEN_TITLES)) {
-      if (pathname.includes(path)) {
-        return title;
-      }
-    }
-    return null;
-  };
-
-  const isHomeScreen = pathname === "/";
-
-  console.log("is home screen: ", isHomeScreen);
-
   return (
     <Tabs
       screenOptions={({ route: { name: routeName } }) => ({
@@ -57,7 +43,7 @@ export const AppTabLayout = () => {
           backgroundColor: Colors.gray,
         },
         headerTitle({ children }) {
-          const title = getScreenTitle() || children;
+          const title = children;
           return <AppHeaderTitle title={title} />;
         },
         headerLeft: () => <AppHeaderLeft canGoBack={isNestedScreen} />,

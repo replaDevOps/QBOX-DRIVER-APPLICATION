@@ -4,7 +4,7 @@ import { mvs } from "@/utils/metrices";
 import React, { useState } from "react";
 import { View } from "react-native";
 
-const Home = () => {
+export const Home = () => {
   const [isAlarmEnabled, setIsAlarmEnabled] = useState(false);
 
   return (

@@ -12,7 +12,7 @@ import {
 export const BOTTOM_TABS = [
   {
     id: 1,
-    name: "(home-screen)",
+    name: "(a-home-screen)",
     title: "Home",
     Icon: HomeIcon,
     IconOutline: HomeIconOutline,
@@ -20,7 +20,7 @@ export const BOTTOM_TABS = [
   },
   {
     id: 2,
-    name: "(history-screen)",
+    name: "(b-history-screen)",
     title: "History",
     Icon: HistoryIcon,
     IconOutline: HistoryIconOutline,
@@ -28,7 +28,7 @@ export const BOTTOM_TABS = [
   },
   {
     id: 3,
-    name: "(delivery-screen)",
+    name: "(c-delivery-screen)",
     title: "Deliveries",
     Icon: DeliveryIcon,
     IconOutline: DeliveryIconOutline,
@@ -36,7 +36,7 @@ export const BOTTOM_TABS = [
   },
   {
     id: 4,
-    name: "(profile-screen)",
+    name: "(d-profile-screen)",
     title: "Profile",
     Icon: ProfileIcon,
     IconOutline: ProfileIconOutline,
