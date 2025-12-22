@@ -8,28 +8,33 @@ export const styles = StyleSheet.create({
     gap: 16,
     marginRight: Spacing.lg,
   },
-  iconButton: {
-    position: "relative",
-    padding: 4,
-  },
   iconPlaceholder: {
     fontSize: 20,
   },
+  iconContainer: {
+    position: "relative",
+    width: 24,
+    height: 24,
+    justifyContent: "center",
+    alignItems: "center",
+  },
   badge: {
     position: "absolute",
-    top: -4,
-    right: -4,
+    top: -6,
+    right: -6,
     backgroundColor: "#FF3B30",
-    borderRadius: 10,
-    minWidth: 20,
-    height: 20,
+    borderRadius: 12,
+    minWidth: 18,
+    height: 18,
     alignItems: "center",
     justifyContent: "center",
     paddingHorizontal: 4,
   },
   badgeText: {
     color: Colors.white,
-    fontSize: 10,
+    fontSize: 11,
     fontWeight: "bold",
+
+    lineHeight: 18,
   },
 });

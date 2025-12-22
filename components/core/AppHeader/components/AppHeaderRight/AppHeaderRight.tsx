@@ -9,7 +9,7 @@ export const AppHeaderRight = ({
   handleQRPress,
   handleNotificationPress,
 }: AppHeaderRightProps) => {
-  const notificationCount = 5;
+  const notificationCount = 3;
   console.log("active tab: ", activeTab);
   return (
     <View style={styles.headerRight}>
@@ -20,14 +20,16 @@ export const AppHeaderRight = ({
       )}
 
       <HapticPressable onPress={handleNotificationPress}>
-        <NotificationBellIcon width={24} height={24} />
-        {notificationCount > 0 && (
-          <View style={styles.badge}>
-            <Text style={styles.badgeText}>
-              {notificationCount > 99 ? "99+" : notificationCount}
-            </Text>
-          </View>
-        )}
+        <View style={styles.iconContainer}>
+          <NotificationBellIcon width={24} height={24} />
+          {notificationCount > 0 && (
+            <View style={styles.badge}>
+              <Text style={styles.badgeText}>
+                {notificationCount > 99 ? "99+" : notificationCount}
+              </Text>
+            </View>
+          )}
+        </View>
       </HapticPressable>
     </View>
   );
