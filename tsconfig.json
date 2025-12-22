@@ -13,9 +13,5 @@
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
-<<<<<<< HEAD
 , "assets/icons/index.js"  ]
-=======
-  ]
->>>>>>> 800aef6e220ee29b0328d265321e1b681f20ac5a
 }
