@@ -13,7 +13,7 @@ export const AppHeaderRight = ({
   console.log("active tab: ", activeTab);
   return (
     <View style={styles.headerRight}>
-      {activeTab === "(home-screen)" && (
+      {activeTab === "(a-home-screen)" && (
         <HapticPressable onPress={handleQRPress}>
           <QRHistoryIcon width={24} height={24} />
         </HapticPressable>

@@ -22,7 +22,6 @@ export type ModalStateType = {
 export type ModalContextType = {
   isOpen: boolean;
   onClose: () => void;
-  onRequestOTP: () => void;
   setLoading: (isLoading: boolean) => void;
   onOpen: (values: ModalStateType) => void;
 };

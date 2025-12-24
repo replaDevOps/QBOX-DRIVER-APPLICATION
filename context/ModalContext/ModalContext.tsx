@@ -1,5 +1,5 @@
-import { DriverOTPRequestModal, Modal, OTPModal } from "@/components";
-import React, { useState } from "react";
+import { Modal } from "@/components";
+import React from "react";
 import { ModalContextType, ModalProviderProps, ModalStateType } from "./props";
 
 export const ModalContext = React.createContext<ModalContextType>({
@@ -7,13 +7,10 @@ export const ModalContext = React.createContext<ModalContextType>({
   onOpen: () => {},
   onClose: () => {},
   setLoading: () => {},
-  onRequestOTP: () => {},
 });
 
 export const ModalProvider = ({ children }: ModalProviderProps) => {
   const [isOpen, setOpen] = React.useState<boolean>(false);
-
-  const [isOTPRequested, setIsOTPRequested] = useState<boolean>(false);
 
   const [isLoading, setLoading] = React.useState<boolean>(false);
   const [modal, setModal] = React.useState<ModalStateType>({
@@ -21,7 +18,7 @@ export const ModalProvider = ({ children }: ModalProviderProps) => {
     subtitle: "",
     primaryButtonText: "Confirm",
     primaryButtonHandler: () => {},
-    modalType: "default", // Add this to distinguish modal types
+    modalType: "default",
   });
 
   const handleOpen = (values: ModalStateType) => {
@@ -31,11 +28,6 @@ export const ModalProvider = ({ children }: ModalProviderProps) => {
       primaryButtonText: values.primaryButtonText || "Confirm",
       modalType: values.modalType || "default",
     });
-  };
-
-  const onRequestOTP = () => {
-    console.log("pressed: ");
-    setIsOTPRequested(true);
   };
 
   const handleClose = () => {
@@ -55,12 +47,6 @@ export const ModalProvider = ({ children }: ModalProviderProps) => {
     }
   };
 
-  const handleOTPResend = () => {
-    if (modal.onOTPResend) {
-      modal.onOTPResend();
-    }
-  };
-
   return (
     <ModalContext.Provider
       value={{
@@ -68,32 +54,10 @@ export const ModalProvider = ({ children }: ModalProviderProps) => {
         setLoading,
         onOpen: handleOpen,
         onClose: handleClose,
-        onRequestOTP,
       }}
     >
       {children}
-      {isOTPRequested ? (
-        <DriverOTPRequestModal
-          isOpen={isOTPRequested}
-          onClose={() => {
-            setIsOTPRequested(false);
-          }}
-        />
-      ) : isOpen && modal.modalType === "otp" ? (
-        <OTPModal
-          isOpen={isOpen}
-          onClose={handleClose}
-          title={modal.title}
-          subtitle={modal.subtitle}
-          footerText={modal.footerText}
-          footerAction={modal.footerAction}
-          isForgotPassowrd={modal.isForgotPassowrd}
-          onSubmit={handlePrimaryAction}
-          secondaryButtonHandler={handleSecondaryAction}
-          primaryButtonText={modal.primaryButtonText}
-          isLoading={isLoading}
-        />
-      ) : isOpen ? (
+      {isOpen ? (
         <Modal
           isOpen={isOpen}
           icon={modal.icon}
