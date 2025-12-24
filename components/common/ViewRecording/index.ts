@@ -1,2 +1,0 @@
-export { VedioRecording } from "./ViewRecording";
-

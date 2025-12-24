@@ -1,2 +1,2 @@
-export { QRCodeHistoryItemProps, SwipeableRef } from "./props";
+export { QRCodeHistoryItemProps } from "./props";
 export { QRCodeHistoryItem } from "./QRCodeHistoryItem";
